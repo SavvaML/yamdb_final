@@ -14,8 +14,10 @@ services:
   web:
     image: SavvaML/yamdb_final:v2
     restart: always
-    ports:
-      - "8000:8000"
+    volumes:
+      - static_volume:/code/static/
+    expose:
+      - 8000
     depends_on:
       - db
     env_file:
